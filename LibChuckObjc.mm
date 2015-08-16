@@ -21,9 +21,11 @@
 + (instancetype)create:(ChuckOptions)options {
     LibChuckObjc *chuck = [[LibChuckObjc alloc] init];
     chuck_options cOptions;
+    libchuck_options_reset(&cOptions);
     cOptions.num_channels = options.numChannels;
     cOptions.sample_rate = options.sampleRate;
     cOptions.buffer_size = options.bufferSize;
+    cOptions.adaptive_buffer_size = 128;
     cOptions.slave = options.isSlave;
     chuck.instance = libchuck_create(&cOptions);
     return chuck;
