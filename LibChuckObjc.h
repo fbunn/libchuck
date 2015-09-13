@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef struct {
-    NSInteger numChannels;
+    NSInteger numChannelsIn;
+    NSInteger numChannelsOut;
     NSInteger sampleRate;
     NSInteger bufferSize;
     BOOL isSlave;

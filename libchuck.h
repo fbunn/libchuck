@@ -21,7 +21,8 @@ typedef struct chuck_inst chuck_inst;
 
 typedef struct chuck_options
 {
-    int num_channels;
+    int num_channels_in;
+    int num_channels_out;
     int sample_rate;
     int buffer_size;
     int adaptive_buffer_size;

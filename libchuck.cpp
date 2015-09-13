@@ -77,7 +77,8 @@ LIBCHUCK_FUNC_DECL void libchuck_options_reset(chuck_options *options)
     
     memset(options, 0, sizeof(chuck_options));
     
-    options->num_channels = 2;
+    options->num_channels_in = 2;
+    options->num_channels_out = 2;
     options->sample_rate = SAMPLING_RATE_DEFAULT;
     options->buffer_size = BUFFER_SIZE_DEFAULT;
     options->adaptive_buffer_size = 0;
@@ -129,8 +130,8 @@ LIBCHUCK_FUNC_DECL int libchuck_vm_start(chuck_inst *ck)
         t_CKBOOL force_srate = FALSE;
         t_CKUINT adaptive = ck->m_options.adaptive_buffer_size;
         t_CKBOOL slave = ck->m_options.slave;
-        t_CKUINT output_channels = ck->m_options.num_channels;
-        t_CKUINT input_channels = ck->m_options.num_channels;
+        t_CKUINT output_channels = ck->m_options.num_channels_out;
+        t_CKUINT input_channels = ck->m_options.num_channels_in;
         
         // set watchdog
         g_do_watchdog = FALSE;
