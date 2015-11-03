@@ -75,7 +75,6 @@
 		0946F84A1AA85B080045E1C4 /* timetag.c in Sources */ = {isa = PBXBuildFile; fileRef = 0948A8B01A9C73370066CCBD /* timetag.c */; settings = {COMPILER_FLAGS = "-DHAVE_CONFIG_H"; }; };
 		0946F84B1AA85B080045E1C4 /* ulib_machine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0948A9A21A9C73380066CCBD /* ulib_machine.cpp */; };
 		0946F84D1AA85B080045E1C4 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A13EB81AA0860A007DB8D2 /* AudioUnit.framework */; };
-		0946F84E1AA85B080045E1C4 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A13EB61AA085BA007DB8D2 /* libc++.dylib */; };
 		0946F84F1AA85B080045E1C4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0948AA211A9C76410066CCBD /* AudioToolbox.framework */; };
 		0946F8501AA85B080045E1C4 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0948AA1F1A9C76380066CCBD /* CoreAudio.framework */; };
 		0946F8521AA85B080045E1C4 /* libchuck.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 09DDF9811A9C6BB200F72155 /* libchuck.h */; };
@@ -355,7 +354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0946F84D1AA85B080045E1C4 /* AudioUnit.framework in Frameworks */,
-				0946F84E1AA85B080045E1C4 /* libc++.dylib in Frameworks */,
 				0946F84F1AA85B080045E1C4 /* AudioToolbox.framework in Frameworks */,
 				0946F8501AA85B080045E1C4 /* CoreAudio.framework in Frameworks */,
 			);
@@ -877,7 +875,10 @@
 					"$(PROJECT_DIR)/chuck/src/",
 					"$(PROJECT_DIR)/chuck/src/lo",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_MODULE_NAME = chuck;
 				PRODUCT_NAME = "chuck-iOS";
 				SKIP_INSTALL = YES;
@@ -910,7 +911,10 @@
 					"$(PROJECT_DIR)/chuck/src/",
 					"$(PROJECT_DIR)/chuck/src/lo",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_MODULE_NAME = chuck;
 				PRODUCT_NAME = "chuck-iOS";
 				SKIP_INSTALL = YES;
