@@ -19,7 +19,6 @@
 		0946F85C1AA85B690045E1C4 /* libchuck-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0946F85B1AA85B600045E1C4 /* libchuck-iOS.a */; };
 		09A13EBD1AA0861F007DB8D2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A13EBA1AA0861F007DB8D2 /* AudioToolbox.framework */; };
 		09A13EBF1AA0861F007DB8D2 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A13EBC1AA0861F007DB8D2 /* CoreAudio.framework */; };
-		09A13EC11AA08626007DB8D2 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09A13EC01AA08626007DB8D2 /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,18 +43,18 @@
 			remoteGlobalIDString = 0946F8561AA85B080045E1C4;
 			remoteInfo = "libchuck-iOS";
 		};
+		09854CC01BE70AA000B51AA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09A13EAC1AA083EA007DB8D2 /* libchuck.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0946F8091AA85B080045E1C4;
+			remoteInfo = "libchuck-iOS";
+		};
 		09A13EB01AA083EA007DB8D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 09A13EAC1AA083EA007DB8D2 /* libchuck.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 09DDF97E1A9C6BB200F72155;
-			remoteInfo = libchuck;
-		};
-		09A13EB21AA083F9007DB8D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 09A13EAC1AA083EA007DB8D2 /* libchuck.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 09DDF97D1A9C6BB200F72155;
 			remoteInfo = libchuck;
 		};
 /* End PBXContainerItemProxy section */
@@ -74,6 +73,7 @@
 		0946F7FB1AA82FF70045E1C4 /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = ../../TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = "<group>"; };
 		0946F8051AA832520045E1C4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0946F8071AA832610045E1C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		09854CBF1BE6FC9F00B51AA5 /* slave-test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "slave-test.entitlements"; sourceTree = "<group>"; };
 		09A13EAC1AA083EA007DB8D2 /* libchuck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libchuck.xcodeproj; path = ../../libchuck.xcodeproj; sourceTree = "<group>"; };
 		09A13EBA1AA0861F007DB8D2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		09A13EBB1AA0861F007DB8D2 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
@@ -91,7 +91,6 @@
 				0946F8061AA832520045E1C4 /* Accelerate.framework in Frameworks */,
 				09A13EBD1AA0861F007DB8D2 /* AudioToolbox.framework in Frameworks */,
 				0946F8031AA830240045E1C4 /* libTheAmazingAudioEngine.a in Frameworks */,
-				09A13EC11AA08626007DB8D2 /* libc++.dylib in Frameworks */,
 				09A13EBF1AA0861F007DB8D2 /* CoreAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +135,7 @@
 		090707071AA07FEE00FB08C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				09854CBF1BE6FC9F00B51AA5 /* slave-test.entitlements */,
 				090707081AA07FEE00FB08C1 /* Info.plist */,
 				090707091AA07FEE00FB08C1 /* main.m */,
 			);
@@ -186,8 +186,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				09854CC11BE70AA000B51AA5 /* PBXTargetDependency */,
 				0946F8021AA8301F0045E1C4 /* PBXTargetDependency */,
-				09A13EB31AA083F9007DB8D2 /* PBXTargetDependency */,
 			);
 			name = "slave-test";
 			productName = LibChucKTest;
@@ -205,6 +205,15 @@
 				TargetAttributes = {
 					090707031AA07FEE00FB08C1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9GU9FHJ3JC;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -292,10 +301,10 @@
 			name = TheAmazingAudioEngine;
 			targetProxy = 0946F8011AA8301F0045E1C4 /* PBXContainerItemProxy */;
 		};
-		09A13EB31AA083F9007DB8D2 /* PBXTargetDependency */ = {
+		09854CC11BE70AA000B51AA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = libchuck;
-			targetProxy = 09A13EB21AA083F9007DB8D2 /* PBXContainerItemProxy */;
+			name = "libchuck-iOS";
+			targetProxy = 09854CC01BE70AA000B51AA5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -401,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "slave-test/slave-test.entitlements";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -409,6 +419,7 @@
 				);
 				INFOPLIST_FILE = "slave-test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_NAME = "slave-test";
 			};
 			name = Debug;
@@ -417,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "slave-test/slave-test.entitlements";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -425,6 +437,7 @@
 				);
 				INFOPLIST_FILE = "slave-test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_NAME = "slave-test";
 			};
 			name = Release;
