@@ -875,6 +875,7 @@
 					"$(PROJECT_DIR)/chuck/src/",
 					"$(PROJECT_DIR)/chuck/src/lo",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
