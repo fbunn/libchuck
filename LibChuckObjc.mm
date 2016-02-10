@@ -36,6 +36,11 @@
     libchuck_destroy(_instance);
 }
 
+- (void)addModule:(void *)query
+{
+    libchuck_add_module(_instance, query);
+}
+
 - (NSInteger)startVM {
     return libchuck_vm_start(_instance);
 }

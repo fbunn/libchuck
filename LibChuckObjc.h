@@ -34,6 +34,8 @@ typedef struct {
 + (instancetype)create:(ChuckOptions)options;
 - (void)destroy;
 
+- (void)addModule:(void *)query;
+
 - (NSInteger)startVM;
 - (NSInteger)stopVM;
 
