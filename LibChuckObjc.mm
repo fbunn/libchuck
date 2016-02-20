@@ -26,7 +26,7 @@
     cOptions.num_channels_out = options.numChannelsOut;
     cOptions.sample_rate = options.sampleRate;
     cOptions.buffer_size = options.bufferSize;
-    cOptions.adaptive_buffer_size = 128;
+    cOptions.adaptive_buffer_size = options.bufferSize;
     cOptions.slave = options.isSlave;
     chuck.instance = libchuck_create(&cOptions);
     return chuck;
